@@ -1,0 +1,326 @@
+.main {
+    padding: 69px 0 64px 53px;
+
+    .sectionContent {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 47px;
+
+        .title {
+            font-size: 40px;
+            letter-spacing: 1.2px;
+            margin-bottom: 25px;
+        }
+
+        .desc {
+            font-size: 20px;
+            letter-spacing: 0.4px;
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 166px;
+            margin-right: 104px;
+        }
+    }
+
+    .sectionForm {
+        display: flex;
+        gap: 80px;
+        justify-content: space-between;
+
+        @mixin field {
+            border-radius: 5px;
+            border: 1px solid var(--light-gray-color2);
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+            height: 43px;
+            padding: 0 17px;
+            font-size: 14px;
+            letter-spacing: 0.42px;
+            cursor: pointer;
+        }
+
+        .form {
+            display: flex;
+            justify-content: space-between;
+            padding: 21px 39px 32px 44px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.20);
+
+            & label {
+                font-size: 18px;
+                letter-spacing: 0.54px;
+                display: block;
+                margin-bottom: 20px;
+                cursor: default;
+                white-space: nowrap;
+            }
+
+            .inputPanel {
+                width: 242px;
+
+                .input {
+                    @include field();
+                    margin-bottom: 2px;
+                    width: 100%;
+
+                    &::placeholder {
+                        color: var(--dark-gray-color);
+                        text-align: center;
+                    }
+                }
+
+                .inputError {
+                    border-color: var(--red-color);
+                    color: var(--red-color);
+
+                    &::placeholder {
+                        color: var(--red-color);
+                    }
+                }
+            }
+
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+            }
+
+            .selectPanel {
+                .select {
+                    width: 242px;
+                    margin-bottom: 30px;
+                    @include field();
+                    background: url("../../assets/select_arrow.svg") no-repeat;
+                    background-position: calc(100% - 0.75rem) center !important;
+                    -moz-appearance: none !important;
+                    -webkit-appearance: none !important;
+                    appearance: none !important;
+                }
+            }
+
+            .datePanel {
+                display: flex;
+                gap: 20px;
+
+                .dateSelect {
+                    @include field();
+                    margin-bottom: 2px;
+                    width: 176px;
+                }
+
+                .dateSelectError {
+                    border-color: var(--red-color);
+                }
+
+                .dateSelect::-webkit-calendar-picker-indicator {
+                    display: block;
+                    background: url("../../assets/select_arrow.svg") no-repeat;
+                    margin-top: 11px;
+                    cursor: pointer;
+                }
+
+                .dateSelect:required:invalid::-webkit-datetime-edit {
+                    color: transparent;
+                }
+
+                .dateSelect:focus::-webkit-datetime-edit {
+                    color: black !important;
+                }
+
+
+                .dateSelect::before {
+                    color: var(--dark-gray-color);
+                    content: attr(placeholder);
+                }
+
+                .dateSelectError.dateSelect::before {
+                    color: var(--red-color);
+
+                }
+
+                .dateSelect:focus::before {
+                    content: "" !important;
+                    display: none;
+                }
+
+                .dateSelect:valid:before {
+                    content: "" !important;
+                    display: none;
+                }
+            }
+
+            .requiredError {
+                color: var(--red-color);
+            }
+
+            .error {
+                height: 17px;
+                color: var(--red-color);
+                text-align: center;
+                margin-bottom: 11px;
+                white-space: nowrap;
+                font-size: 14px;
+            }
+
+            .choosePanel {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .checkbox {
+                    position: absolute;
+                    z-index: -1;
+                    opacity: 0;
+                }
+
+                .checkbox+label {
+                    display: inline-flex;
+                    align-items: center;
+                    user-select: none;
+                    opacity: 0.4;
+                    cursor: pointer;
+                    margin-bottom: 17px;
+                }
+
+                .checkbox+label::before {
+                    content: '';
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    border: 1px solid var(--black-color);
+                    margin-right: 14px;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+
+                .checkbox:checked+label::before {
+                    background-image: url("../../assets/checkbox_icon.svg");
+                }
+
+                .checkbox:checked+label {
+                    opacity: 1;
+                }
+
+                .btnPanel {
+                    align-self: flex-end;
+
+                    .searchBtn {
+                        width: 305px;
+                        height: 59px;
+                        border-radius: 5px;
+                        background: var(--blue-color);
+                        color: var(--white-color);
+                        font-size: 22px;
+                        font-family: 'Inter Medium', sans-serif;
+                        letter-spacing: 0.66px;
+                        opacity: 1;
+                        cursor: pointer;
+                        margin-bottom: 10px;
+                    }
+
+                    .disabled {
+                        opacity: 0.5;
+                        cursor: default;
+                    }
+
+                    .requiredFields {
+                        color: var(--dark-gray-color);
+                        font-size: 14px;
+                        letter-spacing: 0.42px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .main {
+        padding: 20px 0 25px 0;
+
+        .sectionContent {
+            justify-content: left;
+            margin-bottom: 21px;
+            margin-left: 14px;
+
+            .title {
+                font-size: 25px;
+                letter-spacing: 0.28px;
+                margin-bottom: 25px;
+            }
+
+            .desc {
+                font-size: 18px;
+            }
+
+            .icons {
+                margin-right: 26px;
+                margin-bottom: 52px;
+            }
+
+            .folderIcon {
+                display: none;
+            }
+        }
+
+        .sectionForm {
+            flex-direction: column;
+            gap: 24px;
+
+            .form {
+                flex-direction: column;
+                padding: 24px 26px 37px 14px;
+
+                & label {
+                    letter-spacing: 0.36px;
+                }
+
+                .inputPanel {
+                    width: 100%;
+
+                    .input {
+                        margin-bottom: 5px;
+                    }
+                }
+
+                .selectPanel {
+                    .select {
+                        width: 100%;
+                        margin-bottom: 21px;
+                    }
+                }
+
+                .datePanel {
+                    flex-direction: column;
+
+                    .dateSelect {
+                        width: 100%;
+                    }
+                }
+
+                .error {
+                    margin-bottom: 8px;
+                }
+
+                .choosePanel {
+
+                    .checkboxes {
+                        display: none;
+                    }
+
+                    .btnPanel {
+                        width: 100%;
+
+                        .searchBtn {
+                            width: 100%;
+                            font-size: 20px;
+                            letter-spacing: 0.4px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

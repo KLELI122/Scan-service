@@ -1,0 +1,171 @@
+.userPanel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-self: flex-end;
+
+    .unauthUser {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-size: 14px;
+        letter-spacing: 0.14px;
+
+        .signUpBtn {
+            opacity: 0.4;
+            cursor: default;
+        }
+
+        .delimiter {
+            width: 2px;
+            height: 26px;
+            opacity: 0.6;
+            background: var(--green-color);
+        }
+
+        .signInBtn {
+            width: 65px;
+            height: 26px;
+            border-radius: 5px;
+            background: var(--light-green-color);
+            color: var(--black-color);
+            font-family: 'Inter Medium', sans-serif;
+
+            &:hover {
+                box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.20);
+            }
+        }
+    }
+
+    .authUser {
+        display: flex;
+        align-items: center;
+        gap: 128px;
+
+        .counter {
+            display: flex;
+            flex-direction: column;
+            width: 175px;
+            gap: 2px;
+            border-radius: 5px;
+            background: var(--gray-color);
+            padding: 15px 10px;
+            background-color: rgb(217, 217, 217, 0.3);
+
+            .loading {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: inherit;
+                animation: load 3s linear infinite;
+
+                @keyframes load {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+
+            .counterRow {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                opacity: 1;
+                gap: 9px;
+
+                .counterTitle {
+                    color: var(--black-color);
+                    font-size: 10px;
+                    line-height: normal;
+                    opacity: 0.4;
+                    white-space: nowrap;
+                }
+
+                .countCompany {
+                    font-family: 'Inter Bold', sans-serif;
+                    font-size: 14px;
+                }
+
+                .countLimit {
+                    font-family: 'Inter Bold', sans-serif;
+                    color: var(--bright-green-color);
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .userProfile {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            .userData {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 3px;
+
+                .userName {
+                    font-size: 14px;
+                    color: var(--black-color);
+                    opacity: 0.7;
+                    white-space: nowrap;
+                }
+
+                .signOutBtn {
+                    color: #000;
+                    font-size: 10px;
+                    opacity: 0.4;
+
+                    &:hover {
+                        color: var(--green-color);
+                    }
+                }
+            }
+
+            .userAvatar {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 375px) {
+    .userPanel {
+
+        .unauthUser {
+            display: none;
+        }
+
+        .authUser {
+            margin-left: 0;
+
+            .counter {
+                padding: 5px 10px;
+                border-radius: 7px;
+                width: 132px;
+
+                .counterRow {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 2px;
+
+                    .counterTitle {
+                        font-size: 8px;
+                    }
+                }
+            }
+
+            .userProfile {
+                display: none;
+            }
+        }
+    }
+}

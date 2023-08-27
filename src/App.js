@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
+import HomePage from "./components/HomePage/HomePage";
+import LoginPage from "./components/LoginPage/LoginPage";
+import SearchPage from "./components/SearchPage/SearchPage";
+import ResultPage from "./components/ResultPage/ResultPage";
+import Footer from "./components/Footer/Footer";
+import NotFound from "./components/NotFound/NotFound";
+
+import { checkExpire } from "./storage/actions/userActions";
+
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 function App() {
+  const accessToken = useSelector(
+    (state) => state.userReducer.account.accessToken
+  );
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(checkExpire());
+  }, [checkExpire]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        {accessToken && <Route path="/search" element={<SearchPage />} />}
+        {accessToken && <Route path="/result" element={<ResultPage />} />}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 

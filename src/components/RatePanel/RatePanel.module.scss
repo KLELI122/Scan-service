@@ -1,0 +1,283 @@
+.ratePanel {
+    display: flex;
+    justify-content: space-between;
+    gap: 37px;
+    margin-top: 70px;
+
+    .card {
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.20);
+        min-width: 415px;
+
+        .header {
+            border-radius: 10px 10px 0px 0px;
+            height: 132px;
+            padding: 30px 0 0 30px;
+            position: relative;
+
+            .title {
+                font-family: 'Inter Medium', sans-serif;
+                font-size: 30px;
+                letter-spacing: 0.3px;
+                text-transform: capitalize;
+            }
+
+            .desc {
+                font-size: 18px;
+                letter-spacing: 0.18px;
+                margin-top: 10px;
+            }
+
+            .icon {
+                position: absolute;
+                top: 0;
+                right: 5px;
+            }
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 55px;
+            padding: 37px 15px 24px 30px;
+
+            .pricePanel {
+                display: flex;
+                flex-direction: column;
+
+                .currentRate {
+                    display: none;
+                }
+
+                .price {
+                    display: flex;
+                    align-items: center;
+                    gap: 19px;
+                    font-family: 'Inter Medium', sans-serif;
+
+                    .currentPrice {
+                        font-size: 30px;
+                        letter-spacing: 0.3px;
+                    }
+
+                    .previousPrice {
+                        font-size: 25px;
+                        letter-spacing: 0.25px;
+                        text-decoration: line-through;
+                        opacity: 0.5;
+                    }
+                }
+
+                .installmentPrice {
+                    margin-top: 13px;
+                    font-size: 18px;
+                    letter-spacing: 0.36px;
+                    white-space: pre;
+                }
+
+                .empty {
+                    margin-top: 13px;
+                }
+            }
+
+            .rateContent {
+                font-family: 'Inter Medium', sans-serif;
+                font-size: 20px;
+                letter-spacing: 0.2px;
+                margin-bottom: 5px;
+            }
+
+            .contentItem {
+                display: flex;
+                gap: 8px;
+                margin-top: 5px;
+                font-size: 18px;
+                letter-spacing: 0.18px;
+            }
+        }
+
+        & button {
+            width: 100%;
+            height: 59px;
+            border-radius: 5px;
+            font-size: 20px;
+            letter-spacing: 0.2px;
+        }
+
+        .personalAreaBtn {
+            background-color: var(--light-gray-color);
+            color: var(--black-color);
+        }
+
+        .moreBtn {
+            background: var(--blue-color);
+            color: var(--white-color);
+        }
+    }
+
+    .active {
+
+        .content {
+            padding-top: 13px;
+
+            .pricePanel {
+
+                .currentRate {
+                    display: inline-block;
+                    width: 134px;
+                    height: 24px;
+                    border-radius: 10px;
+                    background: var(--light-blue-color);
+                    font-size: 14px;
+                    letter-spacing: 0.14px;
+                    color: var(--white-color);
+                    cursor: default;
+                    align-self: flex-end;
+                }
+            }
+        }
+    }
+}
+
+.begginer {
+
+    &.active {
+        border: 2px solid var(--orange-color);
+    }
+
+    .header {
+        background: var(--orange-color);
+
+        .icon {
+            top: 11px;
+        }
+    }
+}
+
+.pro {
+
+    &.active {
+        border: 2px solid var(--light-green-color);
+    }
+
+    .header {
+        background: var(--light-green-color);
+    }
+}
+
+.business {
+
+    &.active {
+        border: 2px solid var(--black-color);
+    }
+
+    .header {
+        background: var(--black-color);
+        color: var(--white-color);
+
+        .icon {
+            top: 23px;
+        }
+    }
+
+
+}
+
+
+
+
+@media screen and (max-width: 375px) {
+    .ratePanel {
+        flex-wrap: wrap;
+        gap: 43px;
+        margin-top: 37px;
+
+        .card {
+            min-width: 335px;
+
+            .header {
+                padding: 30px 0 0 24px;
+            }
+
+            .content {
+                gap: 36px;
+                padding: 20px 24px 31px 24px;
+
+                .pricePanel {
+
+                    .price {
+                        gap: 10px;
+                    }
+
+                    .installmentPrice {
+                        margin-top: 10px;
+                        white-space: pre-wrap;
+                    }
+
+                    .empty {
+                        display: none;
+                    }
+                }
+
+                .rateContent {
+                    font-size: 18px;
+                    letter-spacing: 0.18px;
+                    margin-bottom: 5px;
+                }
+
+                .contentItem {
+                    gap: 7px;
+                    margin-top: 5px;
+                    font-size: 16px;
+                    letter-spacing: 0.16px;
+                }
+            }
+
+            & button {
+                width: 100%;
+                height: 59px;
+                font-size: 18px;
+                letter-spacing: 0.18px;
+            }
+        }
+
+        .begginer {
+
+            .header {
+
+                .icon {
+                    width: 59px;
+                }
+            }
+        }
+
+        .pro {
+
+            .header {
+
+                .icon {
+                    width: 100px;
+                }
+            }
+        }
+
+        .business {
+
+            .header {
+
+                .icon {
+                    top: 15px;
+                    width: 73px;
+                }
+            }
+        }
+
+        .active {
+
+    .content {
+        padding-top: 13px;
+    }
+}
+    }
+}

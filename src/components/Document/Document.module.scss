@@ -1,0 +1,188 @@
+.document {
+    width: 641px;
+    height: 694px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.20);
+    padding: 19px 30px 35px 30px;
+    display: flex;
+    flex-direction: column;
+
+    .header {
+        display: flex;
+        gap: 14px;
+        color: var(--dark-gray-color);
+        font-size: 16px;
+        letter-spacing: 0.32px;
+        margin-bottom: 24px;
+
+        & a {
+            color: var(--dark-gray-color);
+            text-decoration-line: underline;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .content {
+
+
+        .title {
+            font-family: 'Inter Medium', sans-serif;
+            font-size: 26px;
+            letter-spacing: 0.52px;
+            margin-bottom: 14px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 62.4px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 17px;
+            height: 22px;
+
+            .tag {
+                width: 157px;
+                height: 22px;
+                border-radius: 5px;
+                background: #FFB64F;
+                font-size: 12px;
+                letter-spacing: 0.24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .picture {
+            width: 581px;
+            height: 158px;
+            margin-bottom: 22px;
+
+            & img {
+
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .text {
+
+            font-size: 16px;
+            letter-spacing: 0.32px;
+            opacity: 0.5;
+
+            overflow: hidden;
+            margin-bottom: 32px;
+            display: -webkit-box;
+            -webkit-line-clamp: 12;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 228px;
+            white-space: pre-wrap;
+
+        }
+    }
+
+    .source {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        .sourceBtn {
+            width: 223px;
+            height: 46.539px;
+            border-radius: 5px;
+            background: var(--light-green-color);
+            font-size: 16px;
+            letter-spacing: 0.32px;
+            color: var(--black-color);
+        }
+
+        .wordCount {
+            color: var(--dark-gray-color);
+            font-size: 16px;
+            letter-spacing: 0.32px;
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .document {
+        width: 335px;
+        height: 694px;
+        padding: 19px 14px 18px 24px;
+
+        .header {
+            gap: 9px;
+            font-size: 14px;
+            letter-spacing: 0.14px;
+            margin-bottom: 21px;
+        }
+
+        .content {
+
+            .title {
+                font-size: 19px;
+                letter-spacing: 0.19px;
+                margin-bottom: 20px;
+                -webkit-line-clamp: 3;
+                height: 69px;
+            }
+
+            .tags {
+                margin-bottom: 13px;
+                height: 20px;
+
+                .tag {
+                    width: 132px;
+                    height: 20px;
+                    font-size: 10px;
+                    letter-spacing: 0.1px;
+                }
+            }
+
+            .picture {
+                width: 297px;
+                height: 158px;
+                margin-bottom: 18px;
+
+                & img {
+                    border-radius: 10px;
+                }
+            }
+
+            .text {
+                font-size: 12px;
+                letter-spacing: 0.12px;
+                margin-bottom: 25px;
+                -webkit-line-clamp: 17;
+            }
+        }
+
+        .source {
+
+            .sourceBtn {
+                width: 195px;
+                height: 40.696px;
+                font-size: 14px;
+                letter-spacing: 0.14px;
+            }
+
+            .wordCount {
+                font-size: 14px;
+                letter-spacing: 0.14px;
+            }
+        }
+
+    }
+}
